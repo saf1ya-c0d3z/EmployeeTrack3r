@@ -3,20 +3,22 @@ VALUES ("HR"),
        ("Outreach"),
        ("Case Management"),
        ("Counseling"),
-       ("Finaces");
+       ("Management");
 
 INSERT INTO role_tb (title, salary, department_id)
-VALUES ("Human Recourses Specialist", true, 1),
-       ("School Outreach Specialist", true, 3),
-       ("Case Manager", false, 5),
-       ("Youth Counselor", false, 1),
-       ("Finacial Advisor", true, 2),
+VALUES ("Human Recourses Specialist", 40,000, 8),
+       ("School Outreach Specialist", 44,000, 9),
+       ("Case Manager", 52,000, 9),
+       ("Youth Counselor", 42,000, 9),
+       ("Finacial Advisor", 54,000, 8),
+       ("General Manager", 52,000, 8),
 
        INSERT INTO employee_tb (first_name, last_name, role_id, manager_id)
-VALUES ("Mallory","Wright", 1, 9),
-       ("Huckleberry" , "Finn", 2, 77),
-       ("Biggie", "Smalls", 3, 15),
+VALUES ("Mallory","Wright", 1)
+       ("Huckleberry" , "Finn", 2),
+       ("Biggie", "Smalls", 3, 1),
        ("Jordan", "Cooper", 4, 82),
        ("Rachel", "Newton", 5, 35),
+       ("Bridget", "Fitz", 6, 2),
       ;
 
