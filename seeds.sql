@@ -1,25 +1,22 @@
 INSERT INTO department (name)
-VALUES (1),
-       (2),
-       (5),
-       (10),
-       (15);
+VALUES ("HR"),
+       ("Outreach"),
+       ("Case Management"),
+       ("Counseling"),
+       ("Finaces");
 
 INSERT INTO role_tb (title, salary, department_id)
-VALUES ("The Great Gatsby", true, 1),
-       ("Huckleberry Finn", true, 3),
-       ("100 Years of Solitude", false, 5),
-       ("Things Fall Apart", false, 1),
-       ("Crime and Punishment", true, 2),
-       ("Moby Dick", true, 4),
-       ("Decameron", false, 1);
+VALUES ("Human Recourses Specialist", true, 1),
+       ("School Outreach Specialist", true, 3),
+       ("Case Manager", false, 5),
+       ("Youth Counselor", false, 1),
+       ("Finacial Advisor", true, 2),
 
        INSERT INTO employee_tb (first_name, last_name, role_id, manager_id)
-VALUES ("The Great Gatsby", true, 1),
-       ("Huckleberry Finn", true, 3),
-       ("100 Years of Solitude", false, 5),
-       ("Things Fall Apart", false, 1),
-       ("Crime and Punishment", true, 2),
-       ("Moby Dick", true, 4),
-       ("Decameron", false, 1);
+VALUES ("Mallory","Wright", 1, 9),
+       ("Huckleberry" , "Finn", 2, 77),
+       ("Biggie", "Smalls", 3, 15),
+       ("Jordan", "Cooper", 4, 82),
+       ("Rachel", "Newton", 5, 35),
+      ;
 
