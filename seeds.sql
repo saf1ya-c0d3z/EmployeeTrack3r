@@ -1,12 +1,15 @@
+
+USE employee_db;
+
 INSERT INTO department (name_tb)
-VALUES ("HR"),
-       ("Outreach"),
-       ("Case Management"),
-       ("Counseling"),
-       ("Management");
-       
+VALUES ('HR'),
+       ('Outreach'),
+       ('Case Management'),
+       ('Counseling'),
+       ('Management');
+     
 INSERT INTO role_tb (title, salary, department_id)
-VALUES ("Human Recourses Specialist", 40,000, 8),
+VALUES ('Human Recourses Specialist', 40,000, 8),
        ("School Outreach Specialist", 44,000, 9),
        ("Case Manager", 52,000, 9),
        ("Youth Counselor", 42,000, 9),
