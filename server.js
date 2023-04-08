@@ -96,6 +96,27 @@ function viewEmployees() {
         );
       });
     }
+
+    function addRole() {
+      inquirer.prompt({
+        type: 'input',
+        name: 'role',
+        message: 'What is the name of the new role?',
+      })
+      .then((answer) => {
+        console.log(answer);
+    
+        connection.query(
+          'INSERT INTO roles SET ?',
+          { name: answer.name },
+          function (err, results) {
+            if (err) throw err;
+            console.log('role added successfully!');
+            menu();
+          }
+        );
+      });
+    }
                 
       
     //     function addRole() {
