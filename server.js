@@ -1,6 +1,7 @@
 const mysql = require("mysql2");
 const inquirer = require("inquirer");
-const cTable =require("console.table");
+const cTable =require ("console.table");
+// const express = require ("express");
 
 
 
@@ -10,46 +11,94 @@ const connection = mysql.createConnection({
   database: "employee_db",
 });
 
+function menu() {
+  inquirer.prompt({
+    type: 'list',
+    name: "menu",
+    message: 'What do you want to do?',
+    choices: ['View Departments', 'View Roles', 'View Employees', 'Add Department', 'Add Role', 'Add Employee', 'Update Employee Role', 'Exit'],
+  })
+  .then((answer) => {
+    console.log(answer);
+
+    if (answer === 'View Departments') {
+      viewDpts();
+    } else if (answer === 'View Roles') {
+      viewRoles();
+    } else if (answer === 'View Employees') {
+      viewEmployees();
+    } else if (answer === 'Add Department') {
+      addDpt();
+    } else if (answer === 'Add Role') {
+      addRole();
+    } else if (answer === 'Add Employee') {
+      addEmployee();
+    } else if (answer === 'Update Employee Role') {
+      updateEmpRole();
+    } else if (answer === 'Exit') {
+      connection.end();
+    }
+  });
+}
 
 
 
-
-function viewDpt() {
-
+function viewDpts() {
   connection.query(
-          "SELECT * FROM `department`", function (err, results,) {
-            console.log(results);
-          if error throw err }
-  )}
-          
+    "SELECT * FROM `department`", 
+    function (err, results) {
+      if (err) throw err;
+      console.log(results);
+    }
+  );
+}
 
-  function viewRoles() {
+function viewRoles() {
+  connection.query(
+    "SELECT * FROM `role`",
+    function (err, results) {
+      if (err) {
+        console.log(err);
+        throw err;
+      }
+      console.log(results);
+    }
+  );
+}
 
-    connection.query(
-            "SELECT * FROM `role`", function (err, results,) {
-              console.log(results);
-            if error throw err }
-    )}
+function viewEmployees() {
+  connection.query(
+    'SELECT * FROM employee',
+    function (err, results) {
+      if (err) throw err;
+      console.log(results);
+    }
+  );
+}  
 
-    // function viewEmployee() {
-
-    //   connection.query(
-    //           "SELECT * FROM `employee`", function (err, results,) {
-    //             console.log(results);
-    //           if error throw err }
-    //   )}
-             
-
-    //   function addDpt() {
-
-    //     connection.query(
-    //             "SELECT * FROM `department`", function (err, results,) {
-    //               console.log(results);
-    //             if error throw err }
-    //     )}
+    function addDpt() {
+      inquirer.prompt({
+        type: 'input',
+        name: 'department',
+        message: 'What is the name of the new department?',
+      })
+      .then((answer) => {
+        console.log(answer);
+    
+        connection.query(
+          'INSERT INTO departments SET ?',
+          { name: answer.name },
+          function (err, results) {
+            if (err) throw err;
+            console.log('Department added successfully!');
+            menu();
+          }
+        );
+      });
+    }
                 
       
-    //     function addRoles() {
+    //     function addRole() {
       
     //       connection.query(
     //               "SELECT * FROM `role`", function (err, results,) {
@@ -217,3 +266,5 @@ function viewDpt() {
 //         }
 //       });
 //     }
+
+menu();
