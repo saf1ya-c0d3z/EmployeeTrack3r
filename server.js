@@ -21,21 +21,21 @@ function menu() {
   .then((answer) => {
     console.log(answer);
 
-    if (answer === 'View Departments') {
+    if (answer.menu === 'View Departments') {
       viewDpts();
-    } else if (answer === 'View Roles') {
+    } else if (answer.menu === 'View Roles') {
       viewRoles();
-    } else if (answer === 'View Employees') {
+    } else if (answer.menu === 'View Employees') {
       viewEmployees();
-    } else if (answer === 'Add Department') {
+    } else if (answer.menu === 'Add Department') {
       addDpt();
-    } else if (answer === 'Add Role') {
+    } else if (answer.menu === 'Add Role') {
       addRole();
-    } else if (answer === 'Add Employee') {
+    } else if (answer.menu === 'Add Employee') {
       addEmployee();
-    } else if (answer === 'Update Employee Role') {
+    } else if (answer.menu === 'Update Employee Role') {
       updateEmpRole();
-    } else if (answer === 'Exit') {
+    } else if (answer.menu === 'Exit') {
       connection.end();
     }
   });
@@ -86,8 +86,8 @@ function viewEmployees() {
         console.log(answer);
     
         connection.query(
-          'INSERT INTO departments SET ?',
-          { name: answer.name },
+          'INSERT INTO department SET ?',
+          { name: answer.department },
           function (err, results) {
             if (err) throw err;
             console.log('Department added successfully!');
@@ -107,8 +107,8 @@ function viewEmployees() {
         console.log(answer);
     
         connection.query(
-          'INSERT INTO roles SET ?',
-          { name: answer.name },
+          'INSERT INTO role SET ?',
+          { name: answer.role },
           function (err, results) {
             if (err) throw err;
             console.log('role added successfully!');
@@ -117,25 +117,35 @@ function viewEmployees() {
         );
       });
     }
-                
-      
-    //     function addRole() {
-      
-    //       connection.query(
-    //               "SELECT * FROM `role`", function (err, results,) {
-    //                 console.log(results);
-    //               if error throw err }
-    //       )}
-      
-    //       function addEmployee() {
-      
-    //         connection.query(
-    //                 "SELECT * FROM `employee`", function (err, results,) {
-    //                   console.log(results);
-    //                 if error throw err }
-    //         )}
-           
 
+    function addEmployee() {
+      inquirer.prompt({
+        type: 'input',
+        name: 'employee',
+        message: 'What is the name of the new employee?',
+      })
+      .then((answer) => {
+        console.log(answer);
+    
+        connection.query(
+          'INSERT INTO employee SET ?',
+          { name: answer.employee },
+          function (err, results) {
+            if (err) throw err;
+            console.log('employee added successfully!');
+            menu();
+          }
+        );
+      });
+    }
+                
+
+
+menu();
+
+
+
+   
     //         function updateEmpRole() {
       
     //           connection.query(
@@ -144,148 +154,3 @@ function viewEmployees() {
     //                   if error throw err }
     //           )}
              
-               
-            
-      
-  
-
-
-
-
-
-
-
-
-
-
-// function dataBaseQ() {
-// inquirer
-//   .prompt([
-//     {
-//       type: "input",
-//       name: "name",
-//       message: "What is the department name?",
-//     },
-    
-//     /* Pass your questions in here */
-//   ])
-//   .then((answers) => {
-//     console.log(answers.name);
-//     // execute will internally call prepare and query
-//     connection.query(
-//       "SELECT * FROM `department` WHERE `name` = ? AND `age` > ?",
-//       ["Rick C-137", 53],
-//       function (err, results, fields) {
-//         console.log(results);
-//         console.log(fields); 
-
-//         
-//       }
-//     );
-//     // Use user feedback for... whatever!!
-//   })
-//   .catch((error) => {
-//     if (error.isTtyError) {
-//      
-//     } else {
-//     
-//     }
-//   });
-
-// }
-
-// function roleTbQ() {
-//   inquirer
-//     .prompt([
-//       {
-//         type: "input",
-//         name: "title",
-//         message: "What is the job position?",
-//       },
-//       {
-//         type: "input",
-//         name: "salary",
-//         message: "What is salary of this job?",
-//       },
-//       {
-//         type: "input",
-//         name: "departmentID",
-//         message: "What is the department identification number?",
-//       },
-//       /* Pass your questions in here */
-//     ])
-//     .then((answers) => {
-//       console.log(answers.name);
-//       // execute will internally call prepare and query
-//       connection.execute(
-//         "SELECT * FROM `department` WHERE `name` = ? AND `age` > ?",
-//         ["Rick C-137", 53],
-//         function (err, results, fields) {
-//           console.log(results); // results contains rows returned by server
-//           console.log(fields); // fields contains extra meta data about results, if available
-  
-//           // If you execute same statement again, it will be picked from a LRU cache
-//           // which will save query preparation time and give better performance
-//         }
-//       );
-//       // Use user feedback for... whatever!!
-//     })
-//     .catch((error) => {
-//       if (error.isTtyError) {
-//         // Prompt couldn't be rendered in the current environment
-//       } else {
-//         // Something else went wrong
-//       }
-//     });
-//   }
-//   function employeeTbQ() {
-//     inquirer
-//       .prompt([
-//         {
-//           type: "input",
-//           name: "firstName",
-//           message: "What is the staff member's first name?",
-//         },
-//         {
-//           type: "input",
-//           name: "lastName",
-//           message: "What is the staff member's last name?",
-//         },
-//         {
-//           type: "input",
-//           name: "departmentID",
-//           message: "What is the department identification number?",
-//         },
-//         {
-//           type: "input",
-//           name: "managerID",
-//           message: "What is the staff members name?",
-//         },
-//         /* Pass your questions in here */
-//       ])
-//       .then((answers) => {
-//         console.log(answers.name);
-//         // execute will internally call prepare and query
-//         connection.execute(
-//           "SELECT * FROM `department` WHERE `name` = ? AND `age` > ?",
-//           ["Rick C-137", 53],
-//           function (err, results, fields) {
-//             console.log(results); // results contains rows returned by server
-//             console.log(fields); // fields contains extra meta data about results, if available
-    
-//             // If you execute same statement again, it will be picked from a LRU cache
-//             // which will save query preparation time and give better performance
-//           }
-//         );
-//         // Use user feedback for... whatever!!
-//       })
-//       .catch((error) => {
-//         if (error.isTtyError) {
-//           // Prompt couldn't be rendered in the current environment
-//         } else {
-//           // Something else went wrong
-//         }
-//       });
-//     }
-
-menu();
