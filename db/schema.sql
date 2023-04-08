@@ -5,16 +5,16 @@ USE employee_db;
 
 CREATE TABLE department (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name_tb VARCHAR(30)
+  name VARCHAR(30)
 );
 
-CREATE TABLE role_tb (
+CREATE TABLE role (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  title_tb VARCHAR(30) NOT NULL,
-  salary_tb DECIMAL,
+  title VARCHAR(30) NOT NULL,
+  salary DECIMAL,
   department_id INT
 );
-CREATE TABLE employee_tb (
+CREATE TABLE employee (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
