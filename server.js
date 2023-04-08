@@ -139,18 +139,35 @@ function viewEmployees() {
       });
     }
                 
-
+    function updateEmpRole() {
+  inquirer.prompt([
+    {
+      type: "input",
+      name: "employeeId",
+      message: "Enter the ID of the employee whose role you want to update: ",
+    },
+    {
+      type: "input",
+      name: "newRoleId",
+      message: "Enter the ID of the new role: ",
+    },
+  ]).then((answer) => {
+    connection.query(
+      "UPDATE employee SET role_id = ? WHERE id = ?",
+      [answer.newRoleId, answer.employeeId],
+      function(err, results) {
+        if (err) throw err;
+        console.log(`Employee ${answer.employeeId} role updated to ${answer.newRoleId}`);
+        menu();
+      }
+    );
+  });
+}
 
 menu();
 
 
 
    
-    //         function updateEmpRole() {
-      
-    //           connection.query(
-    //                   "SELECT * FROM `employee`", function (err, results,) {
-    //                     console.log(results);
-    //                   if error throw err }
-    //           )}
+
              
