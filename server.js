@@ -3,37 +3,81 @@ const inquirer = require("inquirer");
 const cTable =require("console.table");
 
 
-// create the connection to database
+
 const connection = mysql.createConnection({
   host: "127.0.0.1",
   user: "root",
   database: "employee_db",
 });
-// how do we get node to interact with mysql
-// how do we get the user to interact with node
+
+
+
 
 
 function viewDpt() {
 
   connection.query(
-          "SELECT * FROM `department`",
-          function (err, results,) {
+          "SELECT * FROM `department`", function (err, results,) {
             console.log(results);
-            
-    
-            
-          }
-        );
+          if error throw err }
+  )}
+          
 
-      .catch((error) => {
-        if (error.isTtyError) {
-         
-        } else {
-        
-        }
-      });
-    
-    }
+  function viewRoles() {
+
+    connection.query(
+            "SELECT * FROM `role`", function (err, results,) {
+              console.log(results);
+            if error throw err }
+    )}
+
+    // function viewEmployee() {
+
+    //   connection.query(
+    //           "SELECT * FROM `employee`", function (err, results,) {
+    //             console.log(results);
+    //           if error throw err }
+    //   )}
+             
+
+    //   function addDpt() {
+
+    //     connection.query(
+    //             "SELECT * FROM `department`", function (err, results,) {
+    //               console.log(results);
+    //             if error throw err }
+    //     )}
+                
+      
+    //     function addRoles() {
+      
+    //       connection.query(
+    //               "SELECT * FROM `role`", function (err, results,) {
+    //                 console.log(results);
+    //               if error throw err }
+    //       )}
+      
+    //       function addEmployee() {
+      
+    //         connection.query(
+    //                 "SELECT * FROM `employee`", function (err, results,) {
+    //                   console.log(results);
+    //                 if error throw err }
+    //         )}
+           
+
+    //         function updateEmpRole() {
+      
+    //           connection.query(
+    //                   "SELECT * FROM `employee`", function (err, results,) {
+    //                     console.log(results);
+    //                   if error throw err }
+    //           )}
+             
+               
+            
+      
+  
 
 
 
