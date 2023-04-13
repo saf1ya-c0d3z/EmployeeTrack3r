@@ -9,12 +9,12 @@ VALUES ('HR'),
        ('Management');
      
 INSERT INTO role (title, salary, department_id)
-VALUES ('Human Recourses Specialist', 4000, 8),
-       ("School Outreach Specialist", 4000, 9),
-       ("Case Manager", 5000, 9),
-       ("Youth Counselor", 4000, 9),
-       ("Finacial Advisor", 5000, 8),
-       ("General Manager", 5000, 8)
+VALUES ('Human Recourses Specialist', 4000, 1),
+       ("School Outreach Specialist", 4000, 2),
+       ("Case Manager", 5000, 3),
+       ("Youth Counselor", 4000, 4),
+       ("Finacial Advisor", 5000, 1),
+       ("General Manager", 5000, 5)
        ;
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
