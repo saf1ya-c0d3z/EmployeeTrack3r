@@ -20,23 +20,19 @@ As a buisness owner, I need to keep track of the departments roles and names of 
 ```
 
 
-
-## Links
-
-
 ### Screenshots
 
 
+## Links
 
 ### Video Walkthrough
 
- https://youtu.be/os6JE20nwaQ
+Link to Video Demo of Application:
 
+https://youtu.be/os6JE20nwaQ
+ 
 
-
-Link to Video Demo of Application: 
-
-Link to Github Repository:
+## Link to Github Repository:
 
 https://github.com/saf1ya-c0d3z/EmployeeTrack3r
 
