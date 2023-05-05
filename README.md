@@ -22,6 +22,9 @@ As a buisness owner, I need to keep track of the departments roles and names of 
 
 ### Screenshots
 
+<img width="1440" alt="Screen Shot 2023-05-05 at 12 31 10 PM" src="https://user-images.githubusercontent.com/118941179/236552696-a3192fa7-77a7-42df-a9e0-45f0bd383103.png">
+<img width="1440" alt="Screen Shot 2023-05-05 at 12 30 59 PM" src="https://user-images.githubusercontent.com/118941179/236552698-b3b3be6f-002b-46d0-8cd5-64271617beff.png">
+
 
 ## Links
 
